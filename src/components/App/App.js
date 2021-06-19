@@ -11,9 +11,7 @@ export default class App extends Component {
     return (
       <>
         <Header />
-        <main>
-          <ProductList />
-        </main>
+        <ProductList />
       </>
     );
   }
