@@ -1,26 +1,27 @@
 import React from 'react';
 import Search from "../Search/Search";
+import s from '../../index.module.css'
 
 const Header = () => {
 
   return (
 
-  <header className="section-outer">
-    <div className="section-inner section-inner_header">
-      <div className="topbar">
+  <header className={s.sectionOuter}>
+    <div className={`${s.sectionInner} ${s.sectionInner_header}`}>
+      <div className={s.topbar}>
 
         <Search />
         
-        <ul className="user-options">
-          <li className="user-options__item">
-            <a href="" className="user-options__link">
-              <span className="user-options__icon user-options__icon_shopping-cart"></span>
-            </a>
+        <ul className={s.userOptions}>
+          <li className={s.userOptions__item}>
+            <span className={s.userOptions__link}>
+              <span className={`${s.userOptions__icon} ${s.userOptions__icon_shoppingCart}`} />
+            </span>
           </li>
-          <li className="user-options__item">
-            <a href="" className="user-options__link">
-              <span className="user-options__icon user-options__icon_user-account"></span>
-            </a>
+          <li className={s.userOptions__item}>
+            <span className={s.userOptions__link}>
+              <span className={`${s.userOptions__icon} ${s.userOptions__icon_userAccount}`} />
+            </span>
           </li>
         </ul>
       </div>

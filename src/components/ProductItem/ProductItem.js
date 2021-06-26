@@ -1,4 +1,5 @@
 import React from 'react'
+import s from '../../index.module.css'
 
 export const ProductItem = ({item, ...props}) => {
 
@@ -28,17 +29,17 @@ export const ProductItem = ({item, ...props}) => {
   }
 
   return (
-    <div className="product">
-      <div className="product__photo-wrapper">
-        <img src={pathImg(item.picture.path)} alt={item.picture.alt} className="product__photo"/>
+    <div className={s.product}>
+      <div className={s.product__photoWrapper}>
+        <img src={pathImg(item.picture.path)} alt={item.picture.alt} className={s.product__photo}/>
       </div>
-      <div className="product__data">
-        <h3 className="product__title">{item.name}</h3>
-        <p className="product__text">
+      <div className={s.product__data}>
+        <h3 className={s.product__title}>{item.name}</h3>
+        <p className={s.product__text}>
           {item.description}
         </p>
         <h4>Details</h4>
-        <p className="product__text">
+        <p className={s.product__text}>
           {item.details}
         </p>
         <div className="product__options">

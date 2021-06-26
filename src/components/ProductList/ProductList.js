@@ -1,7 +1,8 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Loader from "../Loader/Loader";
 import {ProductItem} from "../ProductItem/ProductItem";
+import s from '../../index.module.css'
 
 const ProductList = () => {
 
@@ -45,12 +46,12 @@ const ProductList = () => {
   }
 
   const isLike = (elem) => {
-    let like = 'favorite '
-    let check = elem ? 'active' : ''
+    let check = elem ? `${s.favorite_active}` : ''
     return (
-      like + check
+      check
     )
   }
+
 
   const currencyProduct = (valuta) => {
     if (valuta === 'USD') {
@@ -64,25 +65,25 @@ const ProductList = () => {
 
   return (
     <main>
-      <section className="section-outer">
+      <section className={s.sectionOuter}>
         {item ? (
-          <div className="section-inner section-inner_product-wrapper">
+          <div className={`${s.sectionInner} ${s.sectionInner_productWrapper}`}>
             <ProductItem item={item} onExit={handleExit} />
           </div>
         ) : (
           !!items ? (
             !items.length ? (<div>No data</div>) : (
-             <ul className="product-list">
+             <ul className={s.productList}>
                {
                  items.map(el=>(
-                   <li key={el.id}  className="product-list__item" onClick={()=>getDataById(el.id)}>
-                     <span className={isLike(el.like)}> </span>
-                     <span className="product-list__link">
+                   <li key={el.id}  className={s.productList__item} onClick={()=>getDataById(el.id)}>
+                     <span className={`${s.favorite} ${isLike(el.like)}`}> </span>
+                     <span className={s.productList__link}>
                        <img src={pathImg(el.picture.path)} alt={el.picture.alt}
-                            className="product-list__photo" />
+                            className={s.productList__photo} />
                      </span>
-                     <h4 className="product-list__title">{el.name}</h4>
-                     <span className="product-list__price">{currencyProduct(el.price.currency)}{el.price.value}</span>
+                     <h4 className={s.productList__title}>{el.name}</h4>
+                     <span className={s.productList__price}>{currencyProduct(el.price.currency)}{el.price.value}</span>
                    </li>
                  ))
                }
