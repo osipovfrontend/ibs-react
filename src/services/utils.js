@@ -1,3 +1,5 @@
+import s from '../index.module.css'
+
 export default class Utils {
 
   pathImg = (path) => {
@@ -8,20 +10,17 @@ export default class Utils {
   }
 
   isLike = (elem) => {
-    let like = 'favorite'
-    let check = elem ? ' active' : ''
+    let check = elem ? `${s.favorite_active}` : ''
     return (
-      like + check
+      check
     )
   }
 
   currencyProduct = (valuta) => {
     if (valuta === 'USD') {
-      let currency_product = '$'
-      return currency_product
+      return '$'
     } else {
-      let currency_product = 'Р'
-      return currency_product
+      return 'Р'
     }
   }
 

@@ -1,53 +1,28 @@
 import React from 'react';
 import Search from "../Search";
+import s from '../../index.module.css'
+
 
 const Header = () => {
 
-  const onSearchInput = (text) => {
-
-  }
-
-  // document.querySelector('.search-panel__input').addEventListener('input', function() {
-  //   let val = this.value.trim().toLowerCase();
-  //   let elasticItems = document.querySelectorAll('.product-list__title');
-  //   if (val != '') {
-  //     elasticItems.forEach(function(elem) {
-  //       if (elem.innerText.toLowerCase().search(val) == -1) {
-  //         elem.closest('.product-list__item').classList.add('hide');
-  //       }
-  //       else {
-  //         elem.closest('.product-list__item').classList.remove('hide');
-  //       }
-  //     });
-  //   }
-  //   else {
-  //     elasticItems.forEach(function(elem) {
-  //       elem.closest('.product-list__item').classList.remove('hide');
-  //     })
-  //   }
-  // });
-
-
-
-
   return (
 
-  <header className="section-outer">
-    <div className="section-inner section-inner_header">
-      <div className="topbar">
+  <header className={s.sectionOuter}>
+    <div className={`${s.sectionInner} ${s.sectionInner_header}`}>
+      <div className={s.topbar}>
 
         <Search />
         
-        <ul className="user-options">
-          <li className="user-options__item">
-            <a href="" className="user-options__link">
-              <span className="user-options__icon user-options__icon_shopping-cart"></span>
-            </a>
+        <ul className={s.userOptions}>
+          <li className={s.userOptions__item}>
+            <span className={s.userOptions__link}>
+              <span className={`${s.userOptions__icon} ${s.userOptions__icon_shoppingCart}`} />
+            </span>
           </li>
-          <li className="user-options__item">
-            <a href="" className="user-options__link">
-              <span className="user-options__icon user-options__icon_user-account"></span>
-            </a>
+          <li className={s.userOptions__item}>
+            <span className={s.userOptions__link}>
+              <span className={`${s.userOptions__icon} ${s.userOptions__icon_userAccount}`} />
+            </span>
           </li>
         </ul>
       </div>
