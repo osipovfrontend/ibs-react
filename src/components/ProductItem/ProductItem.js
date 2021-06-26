@@ -1,9 +1,11 @@
 import React from 'react'
+import {NavLink} from "react-router-dom";
 
-export const ProductItem = ({item, ...props}) => {
+const ProductItem = ({item}) => {
+
 
   const pathImg = (path) => {
-    const baseUrl = 'http://localhost:3006/'
+    const baseUrl = 'http://localhost:3014/'
     return (
       baseUrl+path
     )
@@ -19,13 +21,28 @@ export const ProductItem = ({item, ...props}) => {
 
   const currencyProduct = (valuta) => {
     if (valuta === 'USD') {
-      let currency_product = '$'
-      return currency_product
+      return '$'
     } else {
-      let currency_product = 'Р'
-      return currency_product
+      return 'Р'
     }
   }
+
+  let itemsCount = React.createRef()
+
+  const onDecrement = () => {
+    let countProduct = +itemsCount.current.value;
+    if (countProduct > 0) {
+      countProduct -= 1;
+    }
+    itemsCount.current.value = countProduct;
+  }
+
+  const onIncrement = () => {
+    let countProduct = +itemsCount.current.value;
+    countProduct += 1;
+    itemsCount.current.value = countProduct;
+  }
+
 
   return (
     <div className="product">
@@ -47,9 +64,9 @@ export const ProductItem = ({item, ...props}) => {
               {currencyProduct(item.price.currency)}{item.price.value}
             </span>
             <div className="quantity">
-              <input type="button" value="-" className="quantity__minus"/>
-              <input type="number" className="quantity__count" min="0" max="999" defaultValue="0"/>
-              <input type="button" value="+" className="quantity__plus"/>
+              <input type="button" value="-" className="quantity__minus"  onClick={onDecrement} />
+              <input type="number" className="quantity__count" min="0" max="999" ref={itemsCount} defaultValue="0"/>
+              <input type="button" value="+" className="quantity__plus" onClick={onIncrement}/>
             </div>
           </div>
           <div className="product__actions">
@@ -57,13 +74,10 @@ export const ProductItem = ({item, ...props}) => {
             <span className={isLike(item.like)}></span>
           </div>
         </div>
+        <NavLink to="/" className="btn btn_add">Вернуться на страницу каталога</NavLink>
       </div>
-
-      <button onClick={props.onExit}>Back</button>
-
     </div>
-
-
   )
-
 }
+
+export default ProductItem

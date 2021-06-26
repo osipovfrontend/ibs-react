@@ -1,4 +1,4 @@
-# Курс по React - Домашнее задание №2
+# Курс по React - Домашнее задание №3
 
 Этот проект был проинициализирован при помощи [Create React App](https://github.com/facebook/create-react-app).
 

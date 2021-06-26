@@ -1,27 +1,16 @@
-import React, { Component } from 'react';
-
-import Header from '../Header/Header';
+import React, {Component} from 'react';
 import ProductList from '../ProductList/ProductList'
-
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-
 import './App.css'
+import {BrowserRouter} from "react-router-dom";
 
 export default class App extends Component {
-
-  onClickedItem = (id) => {
-    this.setState({
-      clickedProduct: id
-    });
-  };
 
   render() {
     return (
       <>
-        <Header />
-        <main>
+        <BrowserRouter>
           <ProductList />
-        </main>
+        </BrowserRouter>
       </>
     );
   }
